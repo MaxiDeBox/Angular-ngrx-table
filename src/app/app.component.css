@@ -1,0 +1,14 @@
+.table-status {
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+tr:first-child td {
+  background-color: #ccc;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 2px;
+  white-space: nowrap;
+}

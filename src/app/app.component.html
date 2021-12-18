@@ -1,0 +1,50 @@
+<h5>Статусы</h5>
+<table class="table-status">
+  <tr>
+    <td>id</td>
+    <td>Название</td>
+  </tr>
+  <tr *ngFor="let status of statusItems$ | async">
+    <td>{{ status?.id }}</td>
+    <td>{{ status?.label }}</td>
+  </tr>
+</table>
+
+<h5>Список</h5>
+
+<table class="table-status">
+  <tr>
+    <td>id</td>
+    <td>ФИО</td>
+    <td>Дата</td>
+    <td>Статус</td>
+  </tr>
+  <tr *ngFor="let item of listItems$ | async" >
+    <td>{{item.id}}</td>
+    <td>{{item.fio}}</td>
+    <td>{{item.date | date: 'dd.MM.yyyy' }}</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<h5>Список2</h5>
+
+<table class="table-status" *ngIf="{listItems: listItems$ | async, statusItems: statusItems$ | async} as ctx">
+  <tr>
+    <td>id</td>
+    <td>ФИО</td>
+    <td>Дата</td>
+    <td>Статус</td>
+  </tr>
+  <tr *ngFor="let item of ctx.listItems" >
+    <td>{{item.id}}</td>
+    <td>{{item.fio}}</td>
+    <td>{{item.date | date: 'dd.MM.yyyy' }}</td>
+    <td>
+      <app-item-status
+          [itemId]="item.statusId"
+          [itemsStatusNames]="ctx.statusItems"
+      ></app-item-status>
+    </td>
+  </tr>
+</table>
