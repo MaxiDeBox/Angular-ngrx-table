@@ -41,10 +41,12 @@
     <td>{{item.fio}}</td>
     <td>{{item.date | date: 'dd.MM.yyyy' }}</td>
     <td>
-      <app-item-status
-          [itemId]="item.statusId"
-          [itemsStatusNames]="ctx.statusItems"
-      ></app-item-status>
+<!--      <app-item-status-->
+<!--          [itemId]="item.statusId"-->
+<!--          [itemsStatusNames]="ctx.statusItems"-->
+<!--      ></app-item-status>-->
+
+      <app-status [itemId]="item.statusId"></app-status>
     </td>
   </tr>
 </table>
